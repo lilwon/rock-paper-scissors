@@ -77,4 +77,15 @@ function game() {
     }
 }
 
-game();
+function alertFunction() {
+    alert("Hello World");
+}
+
+const rockBtn= document.querySelector('#rock');
+rockBtn.addEventListener('click', alertFunction);
+
+const paperBtn = document.querySelector('#paper');
+paperBtn.addEventListener('click', alertFunction);
+
+const scisBtn = document.querySelector('#scissors');
+scisBtn.addEventListener('click', alertFunction);
