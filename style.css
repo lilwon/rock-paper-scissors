@@ -1,13 +1,37 @@
+html,
 body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     background-color: #002b36;
+    font-family: "Noto Sans JP";
+    overflow: hidden;
 }
 
 p {
     color: white;
+    font-size: 30px;
 }
 
 .center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.playerSelectContainer {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playerSelect {
+    font-size: 16px;
+    border: 3px solid blue;
+    border-radius: 8px;
+    height: 60px;
+    width: 100px;
+    margin: 0px 10px 0px 10px;
 }
