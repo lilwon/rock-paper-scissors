@@ -19,16 +19,8 @@ function computerPlay() {
 function playRound() {
     // when a player picks one of the buttons...
     const computerSelection = computerPlay();
-    const playerSelection = ""; 
-    const rockBtn= document.querySelector('#rock');
-    rockBtn.addEventListener('click', playerSelection);
-
-    const paperBtn = document.querySelector('#paper');
-    paperBtn.addEventListener('click', playerSelection);
-
-    const scisBtn = document.querySelector('#scissors');
-    scisBtn.addEventListener('click', playerSelection);
-
+    const playerSelection = this.id;
+    
     if ( playerSelection === "rock" ) {
         if ( computerSelection === "paper" ) 
             return console.log("You Lose! Paper beats Rock"); 
@@ -88,18 +80,12 @@ function game() {
     */
 }
 
-function alertFunction() {
-    alert("Hello World");
-}
 
-const playBtn = document.querySelector('#play');
-playBtn.addEventListener('click', playRound);
+const rockBtn= document.querySelector('#rock');
+rockBtn.addEventListener('click', playRound);  
 
-
-/*
 const paperBtn = document.querySelector('#paper');
-paperBtn.addEventListener('click', alertFunction);
+paperBtn.addEventListener('click', playRound );
 
 const scisBtn = document.querySelector('#scissors');
-scisBtn.addEventListener('click', alertFunction);
-*/
+scisBtn.addEventListener('click', playRound );
