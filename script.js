@@ -39,6 +39,7 @@ function playRound() {
             return document.getElementById("response").innerHTML = "You Win! Rock beats Scissors";
         }
         else { 
+            checkWinner();
             return document.getElementById("response").innerHTML = "You Tie! Rock against Rock";
         }
     }
@@ -53,7 +54,8 @@ function playRound() {
             checkWinner(); 
             return document.getElementById("response").innerHTML = "You Win! Paper beats Rock";
         } 
-        else { 
+        else {
+            checkWinner();  
             document.getElementById("response").innerHTML = "You Tie! Paper against Paper";
         }
     }
@@ -69,6 +71,7 @@ function playRound() {
             return document.getElementById("response").innerHTML = "You Win! Scissors beats Paper";
         }
         else { 
+            checkWinner();
             return document.getElementById("response").innerHTML
                 = "You Tie! Scissors against Scissors";
         } 
@@ -91,7 +94,9 @@ function checkWinner() {
         compCount = 0; 
     } else {
         // display the scores
-        document.getElementById("score").innerHTML= " ";
+        document.getElementById("score").innerHTML =
+            `Current Score: ${playerCount}:${compCount}`; 
+    }
 }
 
 const rockBtn= document.querySelector('#rock');
