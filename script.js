@@ -1,3 +1,7 @@
+// trying to test global variables
+var playerCount = 0;
+var compCount = 0;
+
 function computerPlay() {
     let action = Math.floor((Math.random() * 3) + 1); 
     switch(action) {
@@ -15,48 +19,54 @@ function computerPlay() {
     }
 }
 
-// remove the parameters...
 function playRound() {
     // when a player picks one of the buttons...
     const computerSelection = computerPlay();
     const playerSelection = this.id;
     
+    console.log(playerCount);
+
     if ( playerSelection === "rock" ) {
         if ( computerSelection === "paper" ) {
-            return document.getElementById("response").innerHTML
-                = "You Lose! Paper beats Rock"; 
+            compCount++; 
+            // call another function?? call win function?? 
+            checkWinner(); 
+            return document.getElementById("response").innerHTML = "You Lose! Paper beats Rock"; 
         }
         else if ( computerSelection === "scissors") { 
-            return document.getElementById("response").innerHTML
-                = "You Win! Rock beats Scissors";
+            playerCount++;
+            checkWinner();  
+            return document.getElementById("response").innerHTML = "You Win! Rock beats Scissors";
         }
         else { 
-            return document.getElementById("response").innerHTML
-                = "You Tie! Rock against Rock";
+            return document.getElementById("response").innerHTML = "You Tie! Rock against Rock";
         }
     }
     else if ( playerSelection === "paper" ) {
         if ( computerSelection === "scissors" ) {
-            return document.getElementById("response").innerHTML
-                = "You Lose! Scissors beats Paper"; 
+            compCount++;
+            checkWinner(); 
+            return document.getElementById("response").innerHTML = "You Lose! Scissors beats Paper"; 
         } 
         else if ( computerSelection === "rock") { 
-            return document.getElementById("response").innerHTML
-                = "You Win! Paper beats Rock";
+            playerCount++;
+            checkWinner(); 
+            return document.getElementById("response").innerHTML = "You Win! Paper beats Rock";
         } 
         else { 
-            return document.getElementById("response").innerHTML
-                = "You Tie! Paper against Paper";
+            document.getElementById("response").innerHTML = "You Tie! Paper against Paper";
         }
     }
     else if ( playerSelection === "scissors") {
         if ( computerSelection === "rock" ) { 
-            return document.getElementById("response").innerHTML 
-                = "You Lose! Rock beats Scissors";
+            compCount++;
+            checkWinner();
+            return document.getElementById("response").innerHTML = "You Lose! Rock beats Scissors";
         } 
         else if ( computerSelection === "paper") { 
-            return document.getElementById("response").innerHTML 
-                = "You Win! Scissors beats Paper";
+            playerCount++; 
+            checkWinner(); 
+            return document.getElementById("response").innerHTML = "You Win! Scissors beats Paper";
         }
         else { 
             return document.getElementById("response").innerHTML
@@ -69,34 +79,19 @@ function playRound() {
     }
 }
 
-function game() {
-    let playerCount = 0;
-    let compCount = 0; 
-
-    let playerSelection = prompt("Enter 'rock', 'paper', or 'scissors': "); 
-    let computerSelection = computerPlay(); 
-    let result = playRound(playerSelection, computerSelection); 
-
-    console.log(result);
-
-    if ( result.includes("You Win!") ) {
-        playerCount++; 
-    }
-    else if ( result.includes("You Lose!" ) ) {
-        compCount++; 
-    } 
-
-    /*
-    if ( playerCount > compCount) {
-        console.log("You beat the computer!");
-    }
-    else if ( playerCount < compCount) {
-        console.log("You lost against the computer!");
-    }
-    else {
-        console.log("You tied against the computer!");
-    }
-    */
+function checkWinner() {
+    if (playerCount === 5 ) {
+        document.getElementById("score").innerHTML = "You beat the computer!";
+        // reset the counts
+        playerCount = 0; 
+        compCount = 0;
+    } else if ( compCount === 5) {
+        document.getElementById("score").innerHTML = "The computer beat you!";
+        playerCount = 0; 
+        compCount = 0; 
+    } else {
+        // display the scores
+        document.getElementById("score").innerHTML= " ";
 }
 
 const rockBtn= document.querySelector('#rock');
@@ -106,4 +101,4 @@ const paperBtn = document.querySelector('#paper');
 paperBtn.addEventListener('click', playRound );
 
 const scisBtn = document.querySelector('#scissors');
-scisBtn.addEventListener('click', playRound );
+scisBtn.addEventListener('click', playRound);

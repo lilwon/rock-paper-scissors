@@ -8,13 +8,14 @@
     </head>
     <body>
         <div class="topNav">
-            <a href="#info">Info</a>
+            <div id="topNavLinks">
+                <a id="infoBar" href="#info">Info</a>
+            </div>
         </div>
 
         <div class="center" id="scoreContainer">
-            <h2 style="margin-top: 200px" id="response">Let's Play Rock Paper Scissors!</h2>
+            <h2 style="margin-top: 150px" id="response">Let's Play Rock Paper Scissors!</h2>
             <p style="color: white">Choose an option below:</p>
-
         </div>
 
         <div id="playerSelect" class="playerSelectContainer">
@@ -22,6 +23,11 @@
             <button id="paper" class="playerSelect">Paper</button>
             <button id="scissors" class="playerSelect">Scissors</button>
         </div>
+
+        <div class="center">
+            <p id="score" class="scoreboard"></p>
+        </div>
+
 
         <script src="script.js"></script>
     </body>
