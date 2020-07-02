@@ -46,12 +46,17 @@ h2 {
 
 .playerSelect {
     font-size: 16px;
-    border: 3px solid rgb(236, 236, 100);
+    border: 3px solid #b58900 ;
     border-radius: 8px;
     height: 60px;
     width: 100px;
     margin: 0px 15px 0px 15px;
-    transition: all 1s ease; 
+    transition: all 1s ease;
+    cursor: pointer; 
+}
+
+.playerSelect:hover {
+    box-shadow: 0px 0px 5px 3px #b58900;
 }
 
 .scoreboard {

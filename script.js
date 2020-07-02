@@ -24,62 +24,50 @@ function playRound() {
     const computerSelection = computerPlay();
     const playerSelection = this.id;
     
-    console.log(playerCount);
-
     if ( playerSelection === "rock" ) {
         if ( computerSelection === "paper" ) {
             compCount++; 
-            // call another function?? call win function?? 
-            checkWinner(); 
-            return document.getElementById("response").innerHTML = "You Lose! Paper beats Rock"; 
+            document.getElementById("response").innerHTML = "You Lose! Paper beats Rock"; 
         }
         else if ( computerSelection === "scissors") { 
             playerCount++;
-            checkWinner();  
-            return document.getElementById("response").innerHTML = "You Win! Rock beats Scissors";
+            document.getElementById("response").innerHTML = "You Win! Rock beats Scissors";
         }
         else { 
-            checkWinner();
-            return document.getElementById("response").innerHTML = "You Tie! Rock against Rock";
+            document.getElementById("response").innerHTML = "You Tie! Rock against Rock";
         }
     }
     else if ( playerSelection === "paper" ) {
         if ( computerSelection === "scissors" ) {
             compCount++;
-            checkWinner(); 
-            return document.getElementById("response").innerHTML = "You Lose! Scissors beats Paper"; 
+            document.getElementById("response").innerHTML = "You Lose! Scissors beats Paper"; 
         } 
         else if ( computerSelection === "rock") { 
             playerCount++;
-            checkWinner(); 
-            return document.getElementById("response").innerHTML = "You Win! Paper beats Rock";
+            document.getElementById("response").innerHTML = "You Win! Paper beats Rock";
         } 
         else {
-            checkWinner();  
             document.getElementById("response").innerHTML = "You Tie! Paper against Paper";
         }
     }
     else if ( playerSelection === "scissors") {
         if ( computerSelection === "rock" ) { 
             compCount++;
-            checkWinner();
-            return document.getElementById("response").innerHTML = "You Lose! Rock beats Scissors";
+            document.getElementById("response").innerHTML = "You Lose! Rock beats Scissors";
         } 
         else if ( computerSelection === "paper") { 
             playerCount++; 
-            checkWinner(); 
-            return document.getElementById("response").innerHTML = "You Win! Scissors beats Paper";
+            document.getElementById("response").innerHTML = "You Win! Scissors beats Paper";
         }
         else { 
-            checkWinner();
-            return document.getElementById("response").innerHTML
-                = "You Tie! Scissors against Scissors";
+            document.getElementById("response").innerHTML = "You Tie! Scissors against Scissors";
         } 
     }
     else {
-        return document.getElementById("response").innerHTML 
-            = "Not a correct value"; 
+        document.getElementById("response").innerHTML = "Not a correct value"; 
     }
+
+    checkWinner();
 }
 
 function checkWinner() {
@@ -95,7 +83,7 @@ function checkWinner() {
     } else {
         // display the scores
         document.getElementById("score").innerHTML =
-            `Current Score: ${playerCount}:${compCount}`; 
+            `Current Score: ${playerCount}-${compCount}`; 
     }
 }
 
